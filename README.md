@@ -19,6 +19,31 @@ O projeto "Sistema para Adoção Animal - ACAPRA" visa criar uma aplicação web
 
 - Formulário de Adoção: Criar a listagem e visualização dos formulários de adoção respondidos pelos usuários.
 
+## Clonar o Projeto e Configurar o Projeto
+
+1. Clonar o Repositório
+```bash
+git clone https://github.com/CristianoMafraJunior/Sistema-Acapra
+```
+
+2. Criar e Ativar o Ambiente Virtual
+```bash
+python -m venv venv
+```
+
+3. Instalar Dependências do Projeto
+```bash
+pip install -r requirements.txt
+```
+
+4. Instalar o Tailwind:
+```bash
+npm install -D tailwindcss
+```
+5. Gerar o arquivo de configuração:
+```bash
+npx tailwindcss init
+```
 
 ## ALUNOS
 
@@ -26,3 +51,4 @@ O projeto "Sistema para Adoção Animal - ACAPRA" visa criar uma aplicação web
 - [Cauã Nascimento Machado De Paula](https://github.com/CauaDePaula)
 - [Cristiano Mafra Junior](https://github.com/CristianoMafraJunior)
 - [Eryck Michalski](https://github.com/EryckScript)
+- [Rafael de Araujo da Silva](https://github.com/Cascaum)
