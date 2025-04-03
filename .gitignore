@@ -6,6 +6,12 @@ __pycache__
 db.sqlite3
 media
 
+# Node
+node_modules/
+
+# Tailwind CSS
+output.css
+
 # Backup files #
 *.bak
 
@@ -114,6 +120,7 @@ GitHub.sublime-settings
 !.vscode/launch.json
 !.vscode/extensions.json
 .history
+launch.json
 
 # Personal additions
 __pycache__/

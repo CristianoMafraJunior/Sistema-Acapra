@@ -1,0 +1,44 @@
+{% extends 'acapra/base/base_admin.html' %}
+
+{% block title %}Dashboard - Acapra{% endblock %}
+
+{% block content %}
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-blue border border-gray-200 shadow-md rounded-lg">
+            <thead>
+                <tr class="bg-gray-800 text-white">
+                    <th class="py-3 px-6 text-left">Nome</th>
+                    <th class="py-3 px-6 text-left">Espécie</th>
+                    <th class="py-3 px-6 text-left">Raça</th>
+                    <th class="py-3 px-6 text-left">Idade</th>
+                    <th class="py-3 px-6 text-left">Porte</th>
+                    <th class="py-3 px-6 text-left">Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for animal in animais %}
+                <tr class="border-b hover:bg-blue-100">
+                    <td class="py-3 px-6">{{ animal.nome }}</td>
+                    <td class="py-3 px-6">{{ animal.especie }}</td>
+                    <td class="py-3 px-6">{{ animal.raca }}</td>
+                    <td class="py-3 px-6">{{ animal.idade }}</td>
+                    <td class="py-3 px-6">{{ animal.porte }}</td>
+                    <td class="py-3 px-6">
+                        {% with animal.animais.first as foto %}
+                            {% if foto %}
+                                <img src="{{ foto.imagem.url }}" alt="Foto de {{ animal.nome }}" class="w-16 h-16 object-cover rounded-lg">
+                            {% else %}
+                                <span class="text-gray-500">Sem foto</span>
+                            {% endif %}
+                        {% endwith %}
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center py-4 text-gray-600">Nenhum animal cadastrado ainda.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
