@@ -1,0 +1,16 @@
+{% extends 'acapra/base/base.html' %}
+
+{% block title %}Admin - Acapra{% endblock %}
+
+{% block content %}
+    <div class="flex items-center justify-center">
+        <div class="flex flex-col items-center space-y-6">
+            <h2 class="text-5xl font-bold text-center">Login User</h2>
+            <form method="POST"  class="flex flex-col space-y-4 bg-gray-800 p-8 rounded-xl shadow-lg w-96">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="bg-purple-500 hover:bg-purple-600 px-6 py-3 rounded-lg text-white font-bold">Entrar</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

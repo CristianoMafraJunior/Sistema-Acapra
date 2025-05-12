@@ -6,3 +6,4 @@ from .cadastrar import Cadastrar
 from .adocoes_admin import AdocoesAdmin
 from .cadastro_animais_admin import CadastroAnimaisAdmin
 from .formularios_admin import FormulariosAdmin
+from .login_user import LoginUser
