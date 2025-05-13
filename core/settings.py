@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
-from urllib.parse import urlparse
 
 from decouple import config
 from dotenv import load_dotenv
@@ -81,16 +80,15 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
-
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": tmpPostgres.path.replace("/", ""),
-        "USER": tmpPostgres.username,
-        "PASSWORD": tmpPostgres.password,
-        "HOST": tmpPostgres.hostname,
-        "PORT": 5432,
+        "ENGINE": os.environ.get("db_engine", "django.db.backends.postgresql"),
+        "NAME": os.environ.get("db_name"),
+        "USER": os.environ.get("db_user"),
+        "PASSWORD": os.environ.get("db_password"),
+        "HOST": os.environ.get("db_host"),
+        "PORT": os.environ.get("db_port", "5432"),
+        "OPTIONS": {"sslmode": "require"},
     }
 }
 
