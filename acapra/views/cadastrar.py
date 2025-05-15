@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from acapra.forms import FormCadastrar
 from acapra.models import User
+from django.contrib.auth.hashers import make_password
 
 
 def Cadastrar(request):
@@ -17,7 +18,7 @@ def Cadastrar(request):
         user = User(
             nome=nome,
             email=email,
-            senha=senha,
+            senha=make_password(senha),
             cpf=cpf,
             data_nascimento=data_nascimento,
             telefone=telefone,
