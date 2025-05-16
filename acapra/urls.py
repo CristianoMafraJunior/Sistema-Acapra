@@ -9,6 +9,7 @@ from .views import (
     CadastroAnimaisAdmin,
     LoginUser,
     FormularioAdocao,
+    AnimaisDisponiveis,
 )
 
 
@@ -22,4 +23,5 @@ urlpatterns = [
     path("admin_cadastro_animais", CadastroAnimaisAdmin, name="CadastroAnimaisAdmin"),
     path("login_user/", LoginUser, name="LoginUser"),
     path("formulario_adocao/", FormularioAdocao, name="FormularioAdocao"),
+    path("animais_disponiveis/", AnimaisDisponiveis, name="AnimaisDisponiveis"),
 ]
