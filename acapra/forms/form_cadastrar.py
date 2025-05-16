@@ -33,6 +33,7 @@ class FormCadastrar(forms.Form):
             attrs={
                 "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
                 "placeholder": "CPF",
+                "maxlength": "11",
             }
         ),
     )
