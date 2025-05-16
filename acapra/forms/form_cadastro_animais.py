@@ -66,14 +66,6 @@ class AnimalForm(forms.ModelForm):
             }
         )
     )
-    # status_adocao = forms.CharField(
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
-    #             "placeholder": "Adoção",
-    #         }
-    #     )
-    # )
     raca = forms.CharField(
         widget=forms.TextInput(
             attrs={
@@ -82,7 +74,15 @@ class AnimalForm(forms.ModelForm):
             }
         )
     )
-    fotos = MultipleFileField(label="Fotos", required=False)
+    fotos = MultipleFileField(
+        label="Fotos",
+        required=False,
+        widget=MultipleFileInput(
+            attrs={
+                "class": "w-full px-4 py-2 rounded-lg bg-purple-500 hover:bg-purple-600 text-white font-bold cursor-pointer",
+            }
+        ),
+    )
 
     def save(self, commit=True):
         animal = super().save(commit=False)
