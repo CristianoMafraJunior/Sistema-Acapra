@@ -32,7 +32,7 @@
 
         {% for animal in animais %}
           <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
-            {% with animal.animais.first as foto %}
+            {% with animal.fotos.first as foto %}
               {% if foto %}
                 <img src="{{ foto.imagem.url }}" alt="Foto de {{ animal.nome }}" class="w-full h-40 object-cover rounded-md mb-4" />
               {% else %}
@@ -47,9 +47,9 @@
               <li><strong>Idade:</strong> {{ animal.idade }}</li>
               <li><strong>Porte:</strong> {{ animal.porte }}</li>
             </ul>
-            <button class="bg-gradient-to-r from-pink-400 to-purple-500 text-white px-5 py-2 rounded-full hover:opacity-90 transition">
+            <a href="{% url 'EditarAnimal' animal.id %}" class="bg-gradient-to-r from-pink-400 to-purple-500 text-white px-5 py-2 rounded-full hover:opacity-90 transition">
               Editar
-            </button>
+            </a>
           </div>
         {% endfor %}
 
