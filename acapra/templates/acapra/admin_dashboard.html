@@ -46,6 +46,7 @@
               <li><strong>Raça:</strong> {{ animal.raca }}</li>
               <li><strong>Idade:</strong> {{ animal.idade }}</li>
               <li><strong>Porte:</strong> {{ animal.porte }}</li>
+              <li><strong>Status:</strong> {{ animal.get_status_adocao_display }}</li>
             </ul>
             <a href="{% url 'EditarAnimal' animal.id %}" class="bg-gradient-to-r from-pink-400 to-purple-500 text-white px-5 py-2 rounded-full hover:opacity-90 transition">
               Editar

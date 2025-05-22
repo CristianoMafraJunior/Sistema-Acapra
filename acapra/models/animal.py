@@ -7,12 +7,11 @@ class Animal(models.Model):
     idade = models.IntegerField()
     porte = models.CharField(max_length=50)
     descricao = models.TextField()
-    # status_adocao = models.CharField(
-    #     choices=[("A", "Adotado"), ("D", "Disponível")],
-    #     default="D",
-    #     blank=True,
-    #     max_length=20,
-    # )
+    status_adocao = models.CharField(
+        choices=[("A", "Adotado"), ("D", "Disponível")],
+        default="D",
+        blank=True,
+    )
     raca = models.CharField(max_length=50)
 
     def __str__(self):
