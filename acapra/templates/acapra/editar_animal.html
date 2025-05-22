@@ -1,0 +1,48 @@
+{% extends 'acapra/base/base.html' %}
+
+{% block title %}Formulario - Acapra{% endblock %}
+
+{% block content %}
+{% load static %}
+    <div class="max-w-4xl mx-auto">
+        <br>
+        <h1 class="text-3xl font-bold mb-6">Editar {{ animal.nome }}</h1>
+
+        <form method="POST" enctype="multipart/form-data" class="bg-gray-800 p-6 rounded-lg shadow-md">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            {% for field in form.visible_fields %}
+                <div class="mb-4">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <p class="text-red-500 text-sm">{{ field.errors|join:", " }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                Salvar Alterações
+            </button>
+            <a href="{% url 'DashboardAdmin' %}" class="ml-4 text-purple-400">Cancelar</a>
+        </form>
+
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold mb-4">Fotos existentes</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {% for foto in animal.fotos.all %}
+                    <div class="relative group">
+                        <img src="{{ foto.imagem.url }}" alt="Foto de {{ animal.nome }}" class="w-full h-40 object-cover rounded-md mb-4" />
+                        <form method="post" action="{% url 'ExcluirFoto' foto.id %}" class="absolute top-2 right-2">
+                            {% csrf_token %}
+                            <button type="submit" class="bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm hover:bg-red-700">×</button>
+                        </form>
+                    </div>
+                {% empty %}
+                    <p class="text-gray-400">Nenhuma foto cadastrada ainda.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
