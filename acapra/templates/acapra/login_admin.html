@@ -6,11 +6,33 @@
     <div class="flex items-center justify-center">
         <div class="flex flex-col items-center space-y-6">
             <h2 class="text-5xl font-bold text-center">Login Admin</h2>
-            <form method="POST"  class="flex flex-col space-y-4 bg-gray-800 p-8 rounded-xl shadow-lg w-96">
+            <form method="POST" class="flex flex-col space-y-4 bg-gray-800 p-8 rounded-xl shadow-lg w-96">
                 {% csrf_token %}
-                {{ form }}
-                <button type="submit" class="bg-purple-500 hover:bg-purple-600 px-6 py-3 rounded-lg text-white font-bold">Entrar</button>
+                <div>
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                </div>
+                <div class="relative">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                    <button type="button" onclick="togglePassword()" class="absolute right-3 top-9 text-gray-400 hover:text-white">
+                        👁️
+                    </button>
+                </div>
+                <button type="submit" class="bg-purple-500 hover:bg-purple-600 px-6 py-3 rounded-lg text-white font-bold">
+                    Entrar
+                </button>
             </form>
         </div>
     </div>
+    <script>
+function togglePassword() {
+    var input = document.getElementById("id_password");
+    if (input.type === "password") {
+        input.type = "text";
+    } else {
+        input.type = "password";
+    }
+}
+</script>
 {% endblock %}
