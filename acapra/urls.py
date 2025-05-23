@@ -10,6 +10,8 @@ from .views import (
     LoginUser,
     FormularioAdocao,
     AnimaisDisponiveis,
+    EditarAnimal,
+    ExcluirFoto,
 )
 
 
@@ -24,4 +26,6 @@ urlpatterns = [
     path("login_user/", LoginUser, name="LoginUser"),
     path("formulario_adocao/", FormularioAdocao, name="FormularioAdocao"),
     path("animais_disponiveis/", AnimaisDisponiveis, name="AnimaisDisponiveis"),
+    path("animal/<int:animal_id>/editar/", EditarAnimal, name="EditarAnimal"),
+    path("foto/<int:foto_id>/excluir/", ExcluirFoto, name="ExcluirFoto"),
 ]

@@ -9,3 +9,5 @@ from .formularios_admin import FormulariosAdmin
 from .login_user import LoginUser
 from .formulario_adocao import FormularioAdocao
 from .animais_disponiveis import AnimaisDisponiveis
+from .editar_animal import EditarAnimal
+from .excluir_foto import ExcluirFoto
