@@ -1,20 +1,26 @@
 {% extends 'acapra/base/base.html' %}
-
 {% block title %}Home - Acapra{% endblock %}
-
 {% block content %}
-{% load static %}
-        <div class="flex items-center space-x-16 max-w-6xl">
-            <div class="text-left">
-                <h2 class="text-7xl font-bold leading-tight">Adote seu <br> Animal</h2>
-                <div class="mt-6 flex space-x-6">
-                    <a href="#" class="bg-gradient-to-r from-purple-400 to-pink-500 px-8 py-4 rounded-full text-lg">Saiba mais</a>
-                    <a href="{% url 'AnimaisDisponiveis' %}" class="bg-gradient-to-r from-pink-500 to-red-500 px-8 py-4 rounded-full text-lg">Animais Disponíveis</a>
-                </div>
-            </div>
-            <div class="relative">
-                <div class="absolute inset-0 bg-blue-500 rounded-xl blur-xl"></div>
-                <img src="{% static 'images/cachorro.jpg' %}" alt="Cachorro" class="relative rounded-xl shadow-lg w-[500px]">
+    {% load static %}
+    <div class="flex items-center space-x-16 max-w-6xl">
+        <div class="text-left">
+            <h2 class="text-7xl font-bold leading-tight">
+                Adote seu
+                <br>
+                Animal
+            </h2>
+            <div class="mt-6 flex space-x-6">
+                <a href="#"
+                   class="bg-gradient-to-r from-purple-400 to-pink-500 px-8 py-4 rounded-full text-lg">Saiba mais</a>
+                <a href="{% url 'AnimaisDisponiveis' %}"
+                   class="bg-gradient-to-r from-pink-500 to-red-500 px-8 py-4 rounded-full text-lg">Animais Disponíveis</a>
             </div>
         </div>
+        <div class="relative">
+            <div class="absolute inset-0 bg-blue-500 rounded-xl blur-xl"></div>
+            <img src="{% static 'images/cachorro.jpg' %}"
+                 alt="Cachorro"
+                 class="relative rounded-xl shadow-lg w-[500px]">
+        </div>
+    </div>
 {% endblock %}

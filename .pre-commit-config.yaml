@@ -21,3 +21,9 @@ repos:
       - id: flake8
         name: flake8
         additional_dependencies: ["flake8-bugbear==20.1.4"]
+  - repo: https://github.com/Riverside-Healthcare/djLint
+    rev: v1.34.0
+    hooks:
+      - id: djlint
+        args: ["--reformat", "--profile=django"]
+        types: [html]

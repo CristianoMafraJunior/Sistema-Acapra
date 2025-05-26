@@ -1,16 +1,20 @@
 {% extends 'acapra/base/base.html' %}
-
 {% block title %}Formulario - Acapra{% endblock %}
-
 {% block content %}
-{% load static %}
+    {% load static %}
     <div class="flex items-center justify-center">
         <div class="flex flex-col items-center space-y-6">
             <h2 class="text-5xl font-bold text-center">Formulário</h2>
-            <form method="POST" enctype="multipart/form-data" class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-5xl">
+            <form method="POST"
+                  enctype="multipart/form-data"
+                  class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-5xl">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <br><button type="submit" class="bg-purple-500 hover:bg-purple-600 px-6 py-3 rounded-lg text-white font-bold">Enviar</button>
+                <br>
+                <button type="submit"
+                        class="bg-purple-500 hover:bg-purple-600 px-6 py-3 rounded-lg text-white font-bold">
+                    Enviar
+                </button>
             </form>
         </div>
     </div>
