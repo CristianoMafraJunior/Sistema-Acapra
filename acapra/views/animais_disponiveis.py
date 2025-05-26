@@ -15,7 +15,7 @@ def AnimaisDisponiveis(request):
         animais = animais.filter(idade=filtro_idade)
     return render(
         request,
-        "acapra/admin_dashboard.html",
+        "acapra/animais_disponiveis.html",
         {
             "animais": animais,
             "filtro_status": filtro_status,
