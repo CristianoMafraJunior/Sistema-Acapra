@@ -3,3 +3,4 @@ psycopg2-binary
 python-decouple
 python-dotenv
 pillow
+djlint
