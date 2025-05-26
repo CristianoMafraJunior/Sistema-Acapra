@@ -3,7 +3,10 @@ from django.db import models
 
 class Animal(models.Model):
     nome = models.CharField(max_length=100)
-    especie = models.CharField(max_length=50)
+    especie = models.CharField(
+        max_length=50,
+        choices=[("Gato", "Gato"), ("Cachorro", "Cachorro")],
+    )
     idade = models.IntegerField()
     porte = models.CharField(max_length=50)
     descricao = models.TextField()

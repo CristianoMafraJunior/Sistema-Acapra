@@ -33,13 +33,13 @@ class AnimalForm(forms.ModelForm):
             }
         )
     )
-    especie = forms.CharField(
-        widget=forms.TextInput(
+    especie = forms.ChoiceField(
+        choices=Animal._meta.get_field("especie").choices,
+        widget=forms.Select(
             attrs={
                 "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
-                "placeholder": "Especie",
             }
-        )
+        ),
     )
     idade = forms.IntegerField(
         widget=forms.NumberInput(
