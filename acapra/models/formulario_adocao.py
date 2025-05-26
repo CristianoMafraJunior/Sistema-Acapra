@@ -16,7 +16,7 @@ class FormularioAdocao(models.Model):
     tipo_residencia = models.CharField(max_length=30)
     residencia_telas = models.BooleanField()
     animal_acesso_rua = models.BooleanField()
-    endereco_completo = models.BooleanField()
+    endereco_completo = models.CharField(max_length=200)
     renda = models.DecimalField(max_digits=10, decimal_places=2)
     manter_animal = models.BooleanField()
     castracao_vacinacao = models.BooleanField()

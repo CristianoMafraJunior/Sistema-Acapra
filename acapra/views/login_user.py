@@ -14,7 +14,7 @@ def LoginUser(request):
             user = User.objects.get(email=email)
             if check_password(senha, user.senha):
                 request.session["user_id"] = user.id
-                return redirect("Home")
+                return redirect("AnimaisDisponiveisUser")
     else:
         form = FormLoginUser()
 
