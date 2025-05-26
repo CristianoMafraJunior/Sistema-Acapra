@@ -11,3 +11,5 @@ from .formulario_adocao import FormularioAdocao
 from .animais_disponiveis import AnimaisDisponiveis
 from .editar_animal import EditarAnimal
 from .excluir_foto import ExcluirFoto
+from .animais_disponiveis_user import AnimaisDisponiveisUser
+from .formulario_adocao_user import FormularioAdocaoUser
