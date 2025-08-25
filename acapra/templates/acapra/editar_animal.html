@@ -7,21 +7,62 @@
         <h1 class="text-3xl font-bold mb-6">Editar {{ animal.nome }}</h1>
         <form method="POST"
               enctype="multipart/form-data"
-              class="bg-gray-800 p-6 rounded-lg shadow-md">
+              class="bg-gray-800 p-6 rounded-lg shadow-md space-y-6">
             {% csrf_token %}
             {{ form.non_field_errors }}
-            {% for field in form.visible_fields %}
-                <div class="mb-4">
-                    {{ field.label_tag }}
-                    {{ field }}
-                    {% if field.errors %}<p class="text-red-500 text-sm">{{ field.errors|join:", " }}</p>{% endif %}
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    {{ form.nome.label_tag }}
+                    {{ form.nome }}
                 </div>
-            {% endfor %}
-            <button type="submit"
-                    class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                Salvar Alterações
-            </button>
-            <a href="{% url 'DashboardAdmin' %}" class="ml-4 text-purple-400">Cancelar</a>
+                <div>
+                    {{ form.especie.label_tag }}
+                    {{ form.especie }}
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    {{ form.idade.label_tag }}
+                    {{ form.idade }}
+                </div>
+                <div>
+                    {{ form.porte.label_tag }}
+                    {{ form.porte }}
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    {{ form.raca.label_tag }}
+                    {{ form.raca }}
+                </div>
+                <div>
+                    {{ form.vacina.label_tag }}
+                    {{ form.vacina }}
+                </div>
+            </div>
+            <div>
+                {{ form.doenca.label_tag }}
+                {{ form.doenca }}
+            </div>
+            <div>
+                {{ form.descricao.label_tag }}
+                {{ form.descricao }}
+            </div>
+            <div>
+                {{ form.observacao.label_tag }}
+                {{ form.observacao }}
+            </div>
+            <div>
+                {{ form.fotos.label_tag }}
+                {{ form.fotos }}
+            </div>
+            <div class="flex items-center">
+                <button type="submit"
+                        class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                    Salvar Alterações
+                </button>
+                <a href="{% url 'DashboardAdmin' %}" class="ml-4 text-purple-400">Cancelar</a>
+            </div>
         </form>
         <div class="mt-8">
             <h2 class="text-xl font-semibold mb-4">Fotos existentes</h2>
