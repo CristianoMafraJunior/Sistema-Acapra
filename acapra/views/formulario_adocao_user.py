@@ -29,7 +29,7 @@ def FormularioAdocaoUser(request, animal_id):
                     f"Email do usuário: {user.email if user else 'Não informado'}."
                 ),  # Texto simples (fallback)
                 from_email=None,
-                recipient_list=["cristiano.mafracontanto@gmail.com"],
+                recipient_list=[user.email],
                 fail_silently=False,
                 html_message=format_html(
                     """
