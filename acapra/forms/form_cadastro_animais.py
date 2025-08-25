@@ -57,11 +57,36 @@ class AnimalForm(forms.ModelForm):
             }
         )
     )
+    vacina = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
+                "placeholder": "Vacinas",
+            }
+        )
+    )
+    doenca = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
+                "placeholder": "Doenças",
+            }
+        )
+    )
     descricao = forms.CharField(
         widget=forms.Textarea(
             attrs={
                 "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
                 "placeholder": "Descrição",
+                "rows": 3,
+            }
+        )
+    )
+    observacao = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
+                "placeholder": "Observação",
                 "rows": 3,
             }
         )
