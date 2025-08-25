@@ -16,6 +16,11 @@ class Animal(models.Model):
         blank=True,
     )
     raca = models.CharField(max_length=50)
+    vacina = models.CharField(
+        max_length=100, help_text="Separar vacina por ;", default="Nenhuma"
+    )
+    doenca = models.CharField(default="Nenhuma")
+    observacao = models.TextField(default="Nenhuma")
 
     def __str__(self):
         return f"{self.nome} - Idade: {self.idade} - {self.especie}"

@@ -2,10 +2,24 @@
 {% block title %}Cadastro Animais - {{ block.super }}{% endblock %}
 {% block content %}
     {% load static %}
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" class="space-y-4">
         {% csrf_token %}
-        {{ form.as_p }}
-        <br>
+        <div class="grid grid-cols-2 gap-4">
+            <div>{{ form.nome }}</div>
+            <div>{{ form.especie }}</div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div>{{ form.idade }}</div>
+            <div>{{ form.porte }}</div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div>{{ form.raca }}</div>
+            <div>{{ form.vacina }}</div>
+        </div>
+        <div>{{ form.doenca }}</div>
+        <div>{{ form.descricao }}</div>
+        <div>{{ form.observacao }}</div>
+        <div>{{ form.fotos }}</div>
         <button type="submit"
                 class="bg-purple-500 hover:bg-purple-600 px-6 py-3 rounded-lg text-white font-bold">
             Cadastrar Animal
