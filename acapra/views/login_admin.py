@@ -12,7 +12,7 @@ def LoginAdmin(request):
             user = form.get_user()
             if user and user.is_superuser:
                 login(request, user)
-                return redirect("DashboardAdmin")
+                return redirect("CatalogoAdmin")
             else:
                 messages.error(
                     request, "Apenas administradores podem acessar esta área."
