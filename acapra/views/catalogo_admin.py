@@ -2,7 +2,7 @@ from django.shortcuts import render
 from acapra.models import Animal
 
 
-def DashboardAdmin(request):
+def CatalogoAdmin(request):
     filtro_status = request.GET.get("status")
     filtro_especie = request.GET.get("especie")
     filtro_idade = request.GET.get("idade")

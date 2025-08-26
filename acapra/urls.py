@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (
     Home,
     LoginAdmin,
-    DashboardAdmin,
+    CatalogoAdmin,
     Cadastrar,
     FormulariosAdmin,
     AdocoesAdmin,
@@ -20,7 +20,7 @@ from .views import (
 urlpatterns = [
     path("", Home, name="Home"),
     path("login_admin/", LoginAdmin, name="LoginAdmin"),
-    path("dashboard_admin/", DashboardAdmin, name="DashboardAdmin"),
+    path("catalogo_admin/", CatalogoAdmin, name="CatalogoAdmin"),
     path("cadastrar/", Cadastrar, name="Cadastrar"),
     path("admin_formularios/", FormulariosAdmin, name="FormulariosAdmin"),
     path("admin_adocoes/", AdocoesAdmin, name="AdocoesAdmin"),
