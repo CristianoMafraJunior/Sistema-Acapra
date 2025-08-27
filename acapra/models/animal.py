@@ -8,7 +8,10 @@ class Animal(models.Model):
         choices=[("Gato", "Gato"), ("Cachorro", "Cachorro")],
     )
     idade = models.IntegerField()
-    porte = models.CharField(max_length=50)
+    porte = models.CharField(
+        max_length=50,
+        choices=[("Pequeno", "Pequeno"), ("Médio", "Médio"), ("Grande", "Grande")],
+    )
     descricao = models.TextField()
     status_adocao = models.CharField(
         choices=[("A", "Adotado"), ("D", "Disponível")],

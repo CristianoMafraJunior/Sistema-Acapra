@@ -31,7 +31,7 @@ class AnimalForm(forms.ModelForm):
                 "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
                 "placeholder": "Nome",
             }
-        )
+        ),
     )
     especie = forms.ChoiceField(
         choices=Animal._meta.get_field("especie").choices,
@@ -47,15 +47,15 @@ class AnimalForm(forms.ModelForm):
                 "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
                 "placeholder": "Idade",
             }
-        )
+        ),
     )
-    porte = forms.CharField(
-        widget=forms.TextInput(
+    porte = forms.ChoiceField(
+        choices=Animal._meta.get_field("porte").choices,
+        widget=forms.Select(
             attrs={
                 "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
-                "placeholder": "Porte",
             }
-        )
+        ),
     )
     vacina = forms.CharField(
         widget=forms.TextInput(
@@ -63,7 +63,7 @@ class AnimalForm(forms.ModelForm):
                 "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
                 "placeholder": "Vacinas",
             }
-        )
+        ),
     )
     doenca = forms.CharField(
         widget=forms.TextInput(
@@ -71,7 +71,7 @@ class AnimalForm(forms.ModelForm):
                 "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
                 "placeholder": "Doenças",
             }
-        )
+        ),
     )
     descricao = forms.CharField(
         widget=forms.Textarea(
@@ -80,7 +80,7 @@ class AnimalForm(forms.ModelForm):
                 "placeholder": "Descrição",
                 "rows": 3,
             }
-        )
+        ),
     )
     observacao = forms.CharField(
         widget=forms.Textarea(
@@ -89,7 +89,7 @@ class AnimalForm(forms.ModelForm):
                 "placeholder": "Observação",
                 "rows": 3,
             }
-        )
+        ),
     )
     raca = forms.CharField(
         widget=forms.TextInput(

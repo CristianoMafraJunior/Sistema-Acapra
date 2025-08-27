@@ -49,6 +49,13 @@
                         <option value="Cachorro"
                                 {% if filtro_especie == "Cachorro" %}selected{% endif %}>Cachorro</option>
                     </select>
+                    <select name="porte" class="bg-gray-800 text-white rounded-lg px-4 py-2">
+                        <option value="">Todas os Portes</option>
+                        <option value="Pequeno"
+                                {% if filtro_status == "Pequeno" %}selected{% endif %}>Pequeno</option>
+                        <option value="Médio" {% if filtro_status == "Médio" %}selected{% endif %}>Médio</option>
+                        <option value="Grande" {% if filtro_status == "Grande" %}selected{% endif %}>Grande</option>
+                    </select>
                     <input type="number"
                            name="idade"
                            min="0"
