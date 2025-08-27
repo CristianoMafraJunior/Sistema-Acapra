@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (
     Home,
     LoginAdmin,
-    DashboardAdmin,
+    CatalogoAdmin,
     Cadastrar,
     FormulariosAdmin,
     AdocoesAdmin,
@@ -16,14 +16,15 @@ from .views import (
     FormularioAdocaoUser,
     AdocoesAdmin, 
     AdotarAnimal,
-    CancelarAdocao
+    CancelarAdocao,
+    Logout,
 )
 
 
 urlpatterns = [
     path("", Home, name="Home"),
     path("login_admin/", LoginAdmin, name="LoginAdmin"),
-    path("dashboard_admin/", DashboardAdmin, name="DashboardAdmin"),
+    path("catalogo_admin/", CatalogoAdmin, name="CatalogoAdmin"),
     path("cadastrar/", Cadastrar, name="Cadastrar"),
     path("admin_formularios/", FormulariosAdmin, name="FormulariosAdmin"),
     path("admin_adocoes/", AdocoesAdmin, name="AdocoesAdmin"),
@@ -46,4 +47,5 @@ urlpatterns = [
     path("adocoes/", AdocoesAdmin, name="AdocoesAdmin"),
     path("adotar/<int:animal_id>/", AdotarAnimal, name="AdotarAnimal"),
     path("adocoes/cancelar/<int:animal_id>/", CancelarAdocao, name="CancelarAdocao"),
+    path("logout/", Logout, name="Logout"),
 ]
