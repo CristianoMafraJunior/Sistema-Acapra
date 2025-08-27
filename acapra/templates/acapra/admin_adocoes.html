@@ -1,6 +1,29 @@
 {% extends 'acapra/base/base_admin.html' %}
 {% block title %}Adoções - {{ block.super }}{% endblock %}
 {% block content %}
-    {% load static %}
-    <h1>Adoções</h1>
+    <div class="p-6">
+        <h2 class="text-3xl font-semibold text-purple-400 mb-6">Animais Adotados</h2>
+        {% if animais %}
+            <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {% for animal in animais %}
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+                        {% with animal.fotos.first as foto %}
+                            {% if foto %}
+                                <img src="{{ foto.imagem.url }}" alt="Foto de {{ animal.nome }}" class="w-full h-40 object-cover rounded-md mb-4" />
+                            {% else %}
+                                <div class="w-full h-40 bg-gray-200 flex items-center justify-center rounded-md mb-4 text-gray-400">Sem foto</div>
+                            {% endif %}
+                        {% endwith %}
+                        <h3 class="font-bold text-lg mb-1 text-gray-800">{{ animal.nome }}</h3>
+                        <p class="text-gray-600">Espécie: {{ animal.especie }}</p>
+                        <p class="text-gray-600">Raça: {{ animal.raca }}</p>
+                        <p class="text-gray-600">Idade: {{ animal.idade }}</p>
+                        <span class="text-green-600 font-semibold mt-2">Adotado</span>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-gray-600">Nenhum animal foi adotado ainda.</p>
+        {% endif %}
+    </div>
 {% endblock %}
