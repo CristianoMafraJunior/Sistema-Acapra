@@ -15,7 +15,8 @@ from .views import (
     AnimaisDisponiveisUser,
     FormularioAdocaoUser,
     AdocoesAdmin, 
-    AdotarAnimal
+    AdotarAnimal,
+    CancelarAdocao
 )
 
 
@@ -44,4 +45,5 @@ urlpatterns = [
     ),
     path("adocoes/", AdocoesAdmin, name="AdocoesAdmin"),
     path("adotar/<int:animal_id>/", AdotarAnimal, name="AdotarAnimal"),
+    path("adocoes/cancelar/<int:animal_id>/", CancelarAdocao, name="CancelarAdocao"),
 ]
