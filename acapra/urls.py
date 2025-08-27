@@ -14,6 +14,7 @@ from .views import (
     ExcluirFoto,
     AnimaisDisponiveisUser,
     FormularioAdocaoUser,
+    Logout,
 )
 
 
@@ -40,4 +41,5 @@ urlpatterns = [
         FormularioAdocaoUser,
         name="FormularioAdocaoUser",
     ),
+    path("logout/", Logout, name="Logout"),
 ]
