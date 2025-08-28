@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function atualizarVacinas() {
     const especieSelecionada = especieField.value;
-    const vacinasSelecionadas = choicesVacina.getValue(true) || []; // valores atuais
+    const vacinasSelecionadas = choicesVacina.getValue(true) || [];
     choicesVacina.clearStore();
     if (vacinasPorEspecie[especieSelecionada]) {
         vacinasPorEspecie[especieSelecionada].forEach(v => {

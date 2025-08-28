@@ -67,7 +67,7 @@ class AnimalForm(forms.ModelForm):
             "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
             }
         ),
-        required=True,  # garante que o usuário escolha
+        required=True,
     )
     idade = forms.IntegerField(
         widget=forms.NumberInput(
