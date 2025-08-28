@@ -17,8 +17,19 @@
             <div>{{ form.raca }}</div>
             <div>{{ form.vacina }}</div>
         </div>
-        <div>{{ form.doenca }}</div>
-        <div>{{ form.descricao }}</div>
+        <div class="grid grid-cols-2 gap-4">
+    <div>{{ form.doenca }}</div>
+    <div id="descricao-container" class="{% if form.descricao.value %}block{% else %}hidden{% endif %}">
+    {{ form.descricao }}
+    {% if form.descricao.errors %}
+        <ul class="text-red-500 text-sm">
+        {% for error in form.descricao.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+</div>
         <div>{{ form.observacao }}</div>
         <div>{{ form.fotos }}</div>
         <button type="submit"
@@ -43,6 +54,7 @@ const racasPorEspecie = {
     ]
 };
 
+
 // Atualiza as opções de raça quando a espécie muda
 especieField.addEventListener("change", function() {
     const especieSelecionada = this.value;
@@ -57,6 +69,110 @@ especieField.addEventListener("change", function() {
         });
     }
 });
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+<style>
+    .choices__list--dropdown .choices__item {
+    color: #000 !important;
+}
+
+.hidden { display: none; }
+.block { display: block; }
+
+.choices__inner {
+    color: #000 !important;    
+    border-radius: 0.75rem !important;
+}
+
+.choices__input::placeholder {
+    color: #888 !important;
+}
+
+.choices__item {
+    border-radius: 0.5rem !important;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const especieField = document.getElementById("id_especie");
+    const vacinaSelect = document.getElementById("id_vacina");
+
+    const vacinasPorEspecie = {
+        "Gato": [
+            {value: "V4", text: "V4"},
+            {value: "Raiva", text: "Raiva"},
+            {value: "Giárdia", text: "Giárdia"}
+        ],
+        "Cachorro": [
+            {value: "V8", text: "V8"},
+            {value: "V10", text: "V10"},
+            {value: "Raiva", text: "Raiva"},
+            {value: "Gripe", text: "Gripe"}
+        ]
+    };
+
+    const choicesVacina = new Choices(vacinaSelect, {
+        removeItemButton: true,
+        placeholderValue: "Selecione as vacinas",
+        searchEnabled: true,
+    });
+
+    function atualizarVacinas() {
+        const especieSelecionada = especieField.value;
+
+        choicesVacina.clearStore();
+
+        if (vacinasPorEspecie[especieSelecionada]) {
+            vacinasPorEspecie[especieSelecionada].forEach(v => {
+                choicesVacina.setChoices([{
+                    value: v.value,
+                    label: v.text,
+                    selected: false,
+                    disabled: false
+                }], 'value', 'label', false);
+            });
+        }
+    }
+
+    especieField.addEventListener("change", atualizarVacinas);
+
+    atualizarVacinas();
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const doencaField = document.getElementById("id_doenca");
+    const descricaoContainer = document.getElementById("descricao-container");
+
+    function toggleDescricao() {
+        if (doencaField.value === "Sim") {
+            descricaoContainer.style.display = "block";
+        } else {
+            descricaoContainer.style.display = "none";
+            document.getElementById("id_descricao").value = "";
+        }
+    }
+
+    toggleDescricao();
+
+    doencaField.addEventListener("change", toggleDescricao);
+});
+</script>
+
+<script>
+function toggleDescricao() {
+    if (doencaField.value === "Sim") {
+        descricaoContainer.style.display = "block";
+    } else {
+        descricaoContainer.style.display = "none";
+        document.getElementById("id_descricao").value = "";
+    }
+}
 </script>
 
 {% endblock %}

@@ -17,3 +17,10 @@ def EditarAnimal(request, animal_id):
     return render(
         request, "acapra/editar_animal.html", {"form": form, "animal": animal}
     )
+
+def ExcluirAnimal(request, animal_id):
+    animal = get_object_or_404(Animal, id=animal_id)
+    if request.method == "POST":
+        animal.delete()
+        return redirect('DashboardAdmin')
+    return render(request, 'acapra/confirmar_exclusao.html', {'animal': animal})

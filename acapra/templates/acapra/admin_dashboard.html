@@ -94,12 +94,12 @@
                                 Editar
                             </a>
                             <form action="{% url 'AdotarAnimal' animal.id %}" method="post" class="inline-block">
-    {% csrf_token %}
-    <button type="submit"
-       class="bg-gradient-to-r from-green-400 to-green-600 text-white px-5 py-2 rounded-full hover:opacity-90 transition ml-2">
-       Adotar
-    </button>
-</form>
+                        {% csrf_token %}
+                        <button type="submit"
+                        class="bg-gradient-to-r from-green-400 to-green-600 text-white px-5 py-2 rounded-full hover:opacity-90 transition ml-2">
+                        Adotar
+                        </button>
+                            </form>
                         </div>
                     {% endfor %}
                 </div>
