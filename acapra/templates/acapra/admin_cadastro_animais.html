@@ -4,6 +4,7 @@
     {% load static %}
     <form method="POST" enctype="multipart/form-data" class="space-y-4">
         {% csrf_token %}
+        <h2 class="text-3xl font-semibold text-purple-400 mb-6">Animais Adotados</h2>
         <div class="grid grid-cols-2 gap-4">
             <div>{{ form.nome }}</div>
             <div>{{ form.especie }}</div>
@@ -25,4 +26,37 @@
             Cadastrar Animal
         </button>
     </form>
+    <script>
+const racaField = document.getElementById("id_raca");
+const especieField = document.getElementById("id_especie");
+
+const racasPorEspecie = {
+    "Gato": [
+        {value: "Siames", text: "Siames"},
+        {value: "Persa", text: "Persa"},
+        {value: "Maine Coon", text: "Maine Coon"}
+    ],
+    "Cachorro": [
+        {value: "Labrador", text: "Labrador"},
+        {value: "Bulldog", text: "Bulldog"},
+        {value: "Poodle", text: "Poodle"}
+    ]
+};
+
+// Atualiza as opções de raça quando a espécie muda
+especieField.addEventListener("change", function() {
+    const especieSelecionada = this.value;
+    racaField.innerHTML = '<option value="">Selecione a raça</option>'; // reseta opções
+
+    if (racasPorEspecie[especieSelecionada]) {
+        racasPorEspecie[especieSelecionada].forEach(r => {
+            const option = document.createElement("option");
+            option.value = r.value;
+            option.text = r.text;
+            racaField.appendChild(option);
+        });
+    }
+});
+</script>
+
 {% endblock %}

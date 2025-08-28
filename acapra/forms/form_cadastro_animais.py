@@ -19,6 +19,17 @@ class MultipleFileField(forms.FileField):
             result = single_file_clean(data, initial)
         return result
 
+GATOS = [
+    ("Siames", "Siames"),
+    ("Persa", "Persa"),
+    ("Maine Coon", "Maine Coon"),
+]
+
+CACHORROS = [
+    ("Labrador", "Labrador"),
+    ("Bulldog", "Bulldog"),
+    ("Poodle", "Poodle"),
+]
 
 class AnimalForm(forms.ModelForm):
     class Meta:
@@ -34,12 +45,13 @@ class AnimalForm(forms.ModelForm):
         )
     )
     especie = forms.ChoiceField(
-        choices=Animal._meta.get_field("especie").choices,
-        widget=forms.Select(
-            attrs={
-                "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
+    choices=[("", "Selecione a espécie")] + list(Animal._meta.get_field("especie").choices),
+    widget=forms.Select(
+        attrs={
+            "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
             }
         ),
+        required=True,  # garante que o usuário escolha
     )
     idade = forms.IntegerField(
         widget=forms.NumberInput(
@@ -49,13 +61,18 @@ class AnimalForm(forms.ModelForm):
             }
         )
     )
-    porte = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
-                "placeholder": "Porte",
-            }
-        )
+    porte = forms.ChoiceField(
+    choices=[("", "Selecione o porte")] + [
+        ("Pequeno", "Pequeno"),
+        ("Médio", "Médio"),
+        ("Grande", "Grande")
+    ],
+    widget=forms.Select(
+        attrs={
+            "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
+         }
+        ),
+    required=True,
     )
     vacina = forms.CharField(
         widget=forms.TextInput(
@@ -91,13 +108,10 @@ class AnimalForm(forms.ModelForm):
             }
         )
     )
-    raca = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
-                "placeholder": "Raça",
-            }
-        )
+    raca = forms.ChoiceField(
+        choices=[("", "Selecione a raça")],  # Inicialmente vazio
+        widget=forms.Select(attrs={"class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white"}),
+        required=True,
     )
     fotos = MultipleFileField(
         label="Fotos",
