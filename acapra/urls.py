@@ -15,6 +15,8 @@ from .views import (
     AnimaisDisponiveisUser,
     FormularioAdocaoUser,
     Logout,
+    AdotarAnimal,
+    CancelarAdocao,
 )
 
 
@@ -42,4 +44,6 @@ urlpatterns = [
         name="FormularioAdocaoUser",
     ),
     path("logout/", Logout, name="Logout"),
+    path("adotar/<int:animal_id>/", AdotarAnimal, name="AdotarAnimal"),
+    path("adocoes/cancelar/<int:animal_id>/", CancelarAdocao, name="CancelarAdocao"),
 ]

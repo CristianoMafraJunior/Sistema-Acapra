@@ -14,3 +14,5 @@ from .excluir_foto import ExcluirFoto
 from .animais_disponiveis_user import AnimaisDisponiveisUser
 from .formulario_adocao_user import FormularioAdocaoUser
 from .logout import Logout
+from .adotar_animal import AdotarAnimal
+from .cancelar_adocao import CancelarAdocao
