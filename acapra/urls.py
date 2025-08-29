@@ -13,11 +13,7 @@ from .views import (
     ExcluirFoto,
     AnimaisDisponiveisUser,
     FormularioAdocaoUser,
-<<<<<<< HEAD
-    AdocoesAdmin, 
-=======
     Logout,
->>>>>>> b452eddd0296e785cd0aa68cdc83b66e4268d177
     AdotarAnimal,
     CancelarAdocao,
 )
@@ -48,15 +44,10 @@ urlpatterns = [
         FormularioAdocaoUser,
         name="FormularioAdocaoUser",
     ),
-<<<<<<< HEAD
     path("adocoes/", AdocoesAdmin, name="AdocoesAdmin"),
     path("adotar/<int:animal_id>/", AdotarAnimal, name="AdotarAnimal"),
     path("adocoes/cancelar/<int:animal_id>/", CancelarAdocao, name="CancelarAdocao"),
     path('animal/excluir/<int:animal_id>/', ExcluirAnimal, name='ExcluirAnimal'),
-
-=======
     path("logout/", Logout, name="Logout"),
-    path("adotar/<int:animal_id>/", AdotarAnimal, name="AdotarAnimal"),
-    path("adocoes/cancelar/<int:animal_id>/", CancelarAdocao, name="CancelarAdocao"),
->>>>>>> b452eddd0296e785cd0aa68cdc83b66e4268d177
+
 ]

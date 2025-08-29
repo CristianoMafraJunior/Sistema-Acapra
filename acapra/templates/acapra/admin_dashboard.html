@@ -102,23 +102,12 @@
                                class="bg-gradient-to-r from-pink-400 to-purple-500 text-white px-5 py-2 rounded-full hover:opacity-90 transition">
                                 Editar
                             </a>
-<<<<<<< HEAD
                             <form action="{% url 'AdotarAnimal' animal.id %}" method="post" class="inline-block">
                         {% csrf_token %}
                         <button type="submit"
                         class="bg-gradient-to-r from-green-400 to-green-600 text-white px-5 py-2 rounded-full hover:opacity-90 transition ml-2">
                         Adotar
                         </button>
-=======
-                            <form action="{% url 'AdotarAnimal' animal.id %}"
-                                  method="post"
-                                  class="inline-block">
-                                {% csrf_token %}
-                                <button type="submit"
-                                        class="bg-gradient-to-r from-green-400 to-green-600 text-white px-5 py-2 rounded-full hover:opacity-90 transition ml-2">
-                                    Adotar
-                                </button>
->>>>>>> b452eddd0296e785cd0aa68cdc83b66e4268d177
                             </form>
                         </div>
                     {% endfor %}
