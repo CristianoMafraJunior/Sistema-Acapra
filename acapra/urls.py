@@ -10,7 +10,6 @@ from .views import (
     LoginUser,
     FormularioAdocao,
     AnimaisDisponiveis,
-    EditarAnimal,
     ExcluirFoto,
     AnimaisDisponiveisUser,
     FormularioAdocaoUser,
@@ -18,6 +17,8 @@ from .views import (
     AdotarAnimal,
     CancelarAdocao,
 )
+
+from .views.editar_animal import EditarAnimal, ExcluirAnimal
 
 
 urlpatterns = [
@@ -43,7 +44,10 @@ urlpatterns = [
         FormularioAdocaoUser,
         name="FormularioAdocaoUser",
     ),
-    path("logout/", Logout, name="Logout"),
+    path("adocoes/", AdocoesAdmin, name="AdocoesAdmin"),
     path("adotar/<int:animal_id>/", AdotarAnimal, name="AdotarAnimal"),
     path("adocoes/cancelar/<int:animal_id>/", CancelarAdocao, name="CancelarAdocao"),
+    path('animal/excluir/<int:animal_id>/', ExcluirAnimal, name='ExcluirAnimal'),
+    path("logout/", Logout, name="Logout"),
+
 ]
