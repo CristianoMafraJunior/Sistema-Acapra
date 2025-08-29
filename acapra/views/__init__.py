@@ -1,7 +1,7 @@
 # flake8: noqa
 from .home import Home
 from .login_admin import LoginAdmin
-from .dashboard_admin import DashboardAdmin
+from .catalogo_admin import CatalogoAdmin
 from .cadastrar import Cadastrar
 from .adocoes_admin import AdocoesAdmin
 from .cadastro_animais_admin import CadastroAnimaisAdmin
@@ -13,5 +13,9 @@ from .editar_animal import EditarAnimal
 from .excluir_foto import ExcluirFoto
 from .animais_disponiveis_user import AnimaisDisponiveisUser
 from .formulario_adocao_user import FormularioAdocaoUser
+<<<<<<< HEAD
+=======
+from .logout import Logout
+>>>>>>> b452eddd0296e785cd0aa68cdc83b66e4268d177
 from .adotar_animal import AdotarAnimal
 from .cancelar_adocao import CancelarAdocao

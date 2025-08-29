@@ -9,7 +9,7 @@ def CadastroAnimaisAdmin(request):
         form = AnimalForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect("DashboardAdmin")
+            return redirect("CatalogoAdmin")
         else:
             print(form.errors)
     else:

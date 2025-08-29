@@ -10,7 +10,7 @@ def EditarAnimal(request, animal_id):
         form = AnimalForm(request.POST, request.FILES, instance=animal)
         if form.is_valid():
             form.save()
-            return redirect("DashboardAdmin")
+            return redirect("CatalogoAdmin")
     else:
         form = AnimalForm(instance=animal)
 

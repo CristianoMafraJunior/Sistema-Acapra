@@ -13,7 +13,7 @@
     <body class="bg-gray-900 text-white min-h-screen flex flex-col justify-between">
         <header class="w-full flex justify-between items-center p-6 fixed top-0 bg-gray-900 z-10">
             <div class="flex items-center space-x-3">
-                <a href="{% url 'DashboardAdmin' %}">
+                <a href="{% url 'CatalogoAdmin' %}">
                     <img src="{% static 'images/logo.png' %}" alt="Acapra Logo" class="h-12">
                 </a>
                 <h1 class="text-3xl font-bold leading-tight">Acapra</h1>
@@ -25,8 +25,10 @@
                    class="bg-gradient-to-r from-pink-500 to-red-500 px-4 py-2 rounded-full text-sm">Adoções</a>
                 <a href="{% url 'FormulariosAdmin' %}"
                    class="bg-gradient-to-r from-purple-400 to-pink-500 px-4 py-2 rounded-full text-sm">Formulários</a>
-                <a href="{% url 'DashboardAdmin' %}"
-                   class="bg-gradient-to-r from-pink-500 to-red-500 px-4 py-2 rounded-full text-sm">Dashboard</a>
+                <a href="{% url 'CatalogoAdmin' %}"
+                   class="bg-gradient-to-r from-pink-500 to-red-500 px-4 py-2 rounded-full text-sm">Catálogo</a>
+                <a href="{% url 'Logout' %}"
+                   class="bg-gradient-to-r from-pink-500 to-red-500 px-4 py-2 rounded-full text-sm">Sair</a>
             </nav>
         </header>
         <div class="max-w-6xl w-full px-10 pt-20">
@@ -46,6 +48,13 @@
                         <option value="Gato" {% if filtro_especie == "Gato" %}selected{% endif %}>Gato</option>
                         <option value="Cachorro"
                                 {% if filtro_especie == "Cachorro" %}selected{% endif %}>Cachorro</option>
+                    </select>
+                    <select name="porte" class="bg-gray-800 text-white rounded-lg px-4 py-2">
+                        <option value="">Todas os Portes</option>
+                        <option value="Pequeno"
+                                {% if filtro_status == "Pequeno" %}selected{% endif %}>Pequeno</option>
+                        <option value="Médio" {% if filtro_status == "Médio" %}selected{% endif %}>Médio</option>
+                        <option value="Grande" {% if filtro_status == "Grande" %}selected{% endif %}>Grande</option>
                     </select>
                     <input type="number"
                            name="idade"
@@ -93,12 +102,23 @@
                                class="bg-gradient-to-r from-pink-400 to-purple-500 text-white px-5 py-2 rounded-full hover:opacity-90 transition">
                                 Editar
                             </a>
+<<<<<<< HEAD
                             <form action="{% url 'AdotarAnimal' animal.id %}" method="post" class="inline-block">
                         {% csrf_token %}
                         <button type="submit"
                         class="bg-gradient-to-r from-green-400 to-green-600 text-white px-5 py-2 rounded-full hover:opacity-90 transition ml-2">
                         Adotar
                         </button>
+=======
+                            <form action="{% url 'AdotarAnimal' animal.id %}"
+                                  method="post"
+                                  class="inline-block">
+                                {% csrf_token %}
+                                <button type="submit"
+                                        class="bg-gradient-to-r from-green-400 to-green-600 text-white px-5 py-2 rounded-full hover:opacity-90 transition ml-2">
+                                    Adotar
+                                </button>
+>>>>>>> b452eddd0296e785cd0aa68cdc83b66e4268d177
                             </form>
                         </div>
                     {% endfor %}

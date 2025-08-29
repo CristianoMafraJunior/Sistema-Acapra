@@ -13,7 +13,7 @@
     <body class="bg-gray-900 text-white min-h-screen flex flex-col justify-between">
         <header class="w-full flex justify-between items-center p-6 fixed top-0 bg-gray-900 z-10">
             <div class="flex items-center space-x-3">
-                <a href="{% url 'DashboardAdmin' %}">
+                <a href="{% url 'CatalogoAdmin' %}">
                     <img src="{% static 'images/logo.png' %}" alt="Acapra Logo" class="h-12">
                 </a>
                 <h1 class="text-3xl font-bold leading-tight">Acapra</h1>
@@ -44,6 +44,13 @@
                         <option value="Gato" {% if filtro_especie == "Gato" %}selected{% endif %}>Gato</option>
                         <option value="Cachorro"
                                 {% if filtro_especie == "Cachorro" %}selected{% endif %}>Cachorro</option>
+                    </select>
+                    <select name="porte" class="bg-gray-800 text-white rounded-lg px-4 py-2">
+                        <option value="">Todas os Portes</option>
+                        <option value="Pequeno"
+                                {% if filtro_status == "Pequeno" %}selected{% endif %}>Pequeno</option>
+                        <option value="Médio" {% if filtro_status == "Médio" %}selected{% endif %}>Médio</option>
+                        <option value="Grande" {% if filtro_status == "Grande" %}selected{% endif %}>Grande</option>
                     </select>
                     <input type="number"
                            name="idade"

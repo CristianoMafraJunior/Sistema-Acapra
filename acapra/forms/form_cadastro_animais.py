@@ -58,7 +58,7 @@ class AnimalForm(forms.ModelForm):
                 "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
                 "placeholder": "Nome",
             }
-        )
+        ),
     )
     especie = forms.ChoiceField(
     choices=[("", "Selecione a espécie")] + list(Animal._meta.get_field("especie").choices),
@@ -75,7 +75,7 @@ class AnimalForm(forms.ModelForm):
                 "class": "w-full px-4 py-2 rounded-lg bg-gray-800 text-white",
                 "placeholder": "Idade",
             }
-        )
+        ),
     )
     porte = forms.ChoiceField(
     choices=[("", "Selecione o porte")] + [
@@ -129,7 +129,7 @@ class AnimalForm(forms.ModelForm):
                 "placeholder": "Observação",
                 "rows": 3,
             }
-        )
+        ),
     )
     raca = forms.ChoiceField(
     choices=[("", "Selecione a raça")] + GATOS + CACHORROS,
