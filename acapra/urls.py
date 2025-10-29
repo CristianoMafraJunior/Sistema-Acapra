@@ -17,6 +17,7 @@ from .views import (
     Logout,
     AdotarAnimal,
     CancelarAdocao,
+    AprovarFormulario,
 )
 
 
@@ -26,6 +27,11 @@ urlpatterns = [
     path("catalogo_admin/", CatalogoAdmin, name="CatalogoAdmin"),
     path("cadastrar/", Cadastrar, name="Cadastrar"),
     path("admin_formularios/", FormulariosAdmin, name="FormulariosAdmin"),
+    path(
+        "admin_formularios/<int:formulario_id>/aprovar/",
+        AprovarFormulario,
+        name="AprovarFormulario",
+    ),
     path("admin_adocoes/", AdocoesAdmin, name="AdocoesAdmin"),
     path("admin_cadastro_animais", CadastroAnimaisAdmin, name="CadastroAnimaisAdmin"),
     path("login_user/", LoginUser, name="LoginUser"),

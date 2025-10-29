@@ -10,11 +10,11 @@ def LoginUser(request):
         if form.is_valid():
             email = form.cleaned_data["email"]
             senha = form.cleaned_data["password"]
-
-            user = User.objects.get(email=email)
-            if check_password(senha, user.senha):
+            user = User.objects.filter(email=email).first()
+            if user and check_password(senha, user.senha):
                 request.session["user_id"] = user.id
                 return redirect("AnimaisDisponiveisUser")
+            pass
     else:
         form = FormLoginUser()
 

@@ -30,11 +30,6 @@
                 <h2 class="text-3xl font-semibold text-purple-400 mb-8 text-center">Catálogo de Animais</h2>
                 <form method="get"
                       class="flex flex-wrap items-center justify-center gap-4 mb-6">
-                    <select name="status" class="bg-gray-800 text-white rounded-lg px-4 py-2">
-                        <option value="">Todos os Status</option>
-                        <option value="D" {% if filtro_status == "D" %}selected{% endif %}>Disponível</option>
-                        <option value="A" {% if filtro_status == "A" %}selected{% endif %}>Adotado</option>
-                    </select>
                     <select name="especie" class="bg-gray-800 text-white rounded-lg px-4 py-2">
                         <option value="">Todas as Espécies</option>
                         <option value="Gato" {% if filtro_especie == "Gato" %}selected{% endif %}>Gato</option>

@@ -23,7 +23,17 @@ class MultipleFileField(forms.FileField):
 class AnimalForm(forms.ModelForm):
     class Meta:
         model = Animal
-        fields = ["nome", "especie", "idade", "porte", "descricao", "raca"]
+        fields = [
+            "nome",
+            "especie",
+            "idade",
+            "porte",
+            "descricao",
+            "raca",
+            "vacina",
+            "doenca",
+            "observacao",
+        ]
 
     nome = forms.CharField(
         widget=forms.TextInput(

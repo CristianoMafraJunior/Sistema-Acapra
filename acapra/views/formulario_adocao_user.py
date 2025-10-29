@@ -33,18 +33,57 @@ def FormularioAdocaoUser(request, animal_id):
                 fail_silently=False,
                 html_message=format_html(
                     """
-                    <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
-                        <h2 style="color: #4CAF50;">🐶 Nova Solicitação de Adoção</h2>
-                        <p><strong>Nome do Usuário:</strong> {}</p>
-                        <p><strong>Email:</strong> {}</p>
-                        <p><strong>Animal Solicitado:</strong> {}</p>
-                        <hr style="margin: 20px 0;">
-                        <p style="font-size: 0.9em; color: #888;">Este email foi enviado automaticamente pelo sistema Acapra.</p>
-                    </div>
-                """,
-                    user.nome if user else "Anônimo",
-                    user.email if user else "Não informado",
-                    animal.nome,
+    <div style="font-family: 'Segoe UI', Arial, sans-serif;
+                background-color: #0f0f10;
+                color: #f5f5f5;
+                border: 1px solid #27272a;
+                border-radius: 12px;
+                padding: 24px;
+                max-width: 600px;
+                margin: auto;
+                line-height: 1.6;">
+        <h2 style="color: #a855f7; margin-top: 0; font-size: 22px;">
+            🐾 Nova Solicitação de Adoção Recebida!
+        </h2>
+
+        <p style="font-size: 15px; color: #d4d4d8;">
+            Olá <strong style="color: #f1f1f1;">{nome}</strong>,<br>
+            Recebemos sua solicitação de adoção para o animal
+            <strong style="color: #a78bfa;">{animal}</strong>.
+        </p>
+
+        <p style="font-size: 15px; color: #d4d4d8;">
+            Nossa equipe irá analisar as informações e em breve entraremos em contato
+            para seguir com o processo de adoção 💜
+        </p>
+
+        <div style="background-color: #18181b;
+                    padding: 12px 18px;
+                    border-radius: 8px;
+                    margin: 24px 0;">
+            <p style="margin: 0; font-size: 14px; color: #e4e4e7;">
+                <strong>Animal:</strong> {animal}<br>
+                <strong>Espécie:</strong> {especie}<br>
+                <strong>Idade:</strong> {idade} anos
+            </p>
+        </div>
+
+        <p style="font-size: 14px; color: #a1a1aa;">
+            Obrigado por escolher adotar — você está transformando uma vida 🐶💜
+        </p>
+
+        <hr style="border: none; border-top: 1px solid #27272a; margin: 24px 0;"/>
+
+        <p style="font-size: 12px; color: #71717a;">
+            Este e-mail foi enviado automaticamente pelo sistema Acapra.<br>
+            Por favor, não responda diretamente a esta mensagem.
+        </p>
+    </div>
+    """,
+                    nome=user.nome if user else "Anônimo",
+                    animal=animal.nome,
+                    especie=animal.especie,
+                    idade=animal.idade,
                 ),
             )
             return redirect("AnimaisDisponiveisUser")
