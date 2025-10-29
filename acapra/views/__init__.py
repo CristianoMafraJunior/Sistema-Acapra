@@ -16,3 +16,4 @@ from .formulario_adocao_user import FormularioAdocaoUser
 from .logout import Logout
 from .adotar_animal import AdotarAnimal
 from .cancelar_adocao import CancelarAdocao
+from .aprovar_formulario import AprovarFormulario

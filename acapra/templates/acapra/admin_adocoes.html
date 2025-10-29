@@ -16,12 +16,11 @@
                                 <div class="w-full h-40 bg-gray-200 flex items-center justify-center rounded-md mb-4 text-gray-400">Sem foto</div>
                             {% endif %}
                         {% endwith %}
-                        <h3 class="font-bold text-lg mb-1 text-gray-800">{{ animal.nome }}</h3>
+                        <p class="text-gray-600">Nome: {{ animal.nome }}</p>
                         <p class="text-gray-600">Espécie: {{ animal.especie }}</p>
                         <p class="text-gray-600">Raça: {{ animal.raca }}</p>
                         <p class="text-gray-600">Idade: {{ animal.idade }}</p>
                         <span class="text-green-600 font-semibold mt-2">Adotado</span>
-                        <!-- Botão cancelar adoção -->
                         <a href="{% url 'CancelarAdocao' animal.id %}"
                            class="mt-4 px-4 py-2 bg-yellow-400 text-red-600 rounded hover:bg-yellow-500">
                             Cancelar Adoção

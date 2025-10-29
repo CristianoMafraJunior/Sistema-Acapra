@@ -21,6 +21,7 @@ class FormularioAdocao(models.Model):
     manter_animal = models.BooleanField()
     castracao_vacinacao = models.BooleanField()
     taxa_adocao = models.BooleanField()
+    processado = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.animal} - {self.user} - {self.data_envio}"

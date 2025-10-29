@@ -1,6 +1,85 @@
 {% extends 'acapra/base/base_admin.html' %}
-{% block title %}Catálogo - {{ block.super }}{% endblock %}
+{% load static %}
+{% block title %}Formulários de Adoção - {{ block.super }}{% endblock %}
 {% block content %}
-    {% load static %}
-    <h1>Formularios</h1>
+    <div class="p-10 text-white">
+        <h1 class="text-4xl font-bold mb-8 text-purple-400 drop-shadow-sm">🐾 Formulários de Adoção</h1>
+        <div class="overflow-x-auto bg-gray-900/70 rounded-2xl shadow-2xl border border-gray-800 backdrop-blur-sm">
+            <table class="min-w-full text-sm border-collapse">
+                <thead>
+                    <tr class="bg-gray-800/60 text-gray-300 uppercase text-xs tracking-wider">
+                        <th class="px-6 py-4 text-left">Animal</th>
+                        <th class="px-6 py-4 text-left">Adotante</th>
+                        <th class="px-6 py-4 text-left">Data Envio</th>
+                        <th class="px-6 py-4 text-left">Concordam?</th>
+                        <th class="px-6 py-4 text-left">Outros Animais</th>
+                        <th class="px-6 py-4 text-left">Residência</th>
+                        <th class="px-6 py-4 text-left">Telas</th>
+                        <th class="px-6 py-4 text-left">Acesso Rua</th>
+                        <th class="px-6 py-4 text-left">Renda</th>
+                        <th class="px-6 py-4 text-center">Aprovar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for f in formularios %}
+                        <tr class="hover:bg-gray-800/50 transition border-b border-gray-800/70">
+                            <td class="px-6 py-4 font-semibold text-purple-300">
+                                {{ f.animal.nome }}
+                                {% if f.animal.status_adocao == "A" %}
+                                    <span class="ml-2 text-xs bg-green-700/80 text-white px-2 py-0.5 rounded-full">Adotado</span>
+                                {% endif %}
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="font-medium text-white">{{ f.user.nome }}</div>
+                                <div class="text-xs text-gray-400">{{ f.user.email }}</div>
+                            </td>
+                            <td class="px-6 py-4 text-gray-300">{{ f.data_envio }}</td>
+                            <td class="px-6 py-4">
+                                {% if f.todos_concordam %}
+                                    <span class="text-green-400 font-semibold">Sim</span>
+                                {% else %}
+                                    <span class="text-red-400 font-semibold">Não</span>
+                                {% endif %}
+                            </td>
+                            <td class="px-6 py-4 text-gray-400 text-xs max-w-[220px] truncate">{{ f.outros_animais }}</td>
+                            <td class="px-6 py-4 text-gray-300">{{ f.tipo_residencia }}</td>
+                            <td class="px-6 py-4">
+                                {% if f.residencia_telas %}
+                                    <span class="text-green-400 font-semibold">Sim</span>
+                                {% else %}
+                                    <span class="text-red-400 font-semibold">Não</span>
+                                {% endif %}
+                            </td>
+                            <td class="px-6 py-4">
+                                {% if f.animal_acesso_rua %}
+                                    <span class="text-green-400 font-semibold">Sim</span>
+                                {% else %}
+                                    <span class="text-red-400 font-semibold">Não</span>
+                                {% endif %}
+                            </td>
+                            <td class="px-6 py-4 text-gray-300">R$ {{ f.renda }}</td>
+                            <td class="px-6 py-4 text-center">
+                                {% if f.processado %}
+                                    <span class="bg-gray-600 text-white text-xs font-bold px-4 py-2 rounded-lg opacity-70 cursor-not-allowed inline-block">
+                                        Já aprovado
+                                    </span>
+                                {% else %}
+                                    <a href="{% url 'AprovarFormulario' f.id %}"
+                                       class="bg-green-600 hover:bg-green-700 text-white text-xs font-semibold px-5 py-2 rounded-lg shadow-lg shadow-green-900/30 transition-all inline-block">
+                                        Aprovar / Adotar
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="10" class="px-6 py-8 text-center text-gray-500 text-sm">
+                                Nenhum formulário de adoção foi enviado ainda.
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}
